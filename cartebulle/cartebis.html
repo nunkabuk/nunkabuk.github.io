@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+  <style media="screen">
+  #mapid{height: 180px;}
+  </style>
+ </head>
+   <body>
+      <div id="mapid" style="width:545px; height:490px"></div>
+     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+       <script>
+      var carte = L.map('mapid').setView([46.3630104, 2.9846608], 6);
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(carte);
+
+      var marker = L.marker([43.053289, 2.2181419999999434]);
+      var hp = L.icon({
+    iconUrl: 'hp.jpg',
+
+    iconSize:     [16, 30], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+    shadowAnchor: [0, 0],  // the same for the shadow
+  });
+  L.marker([43.053289, 2.2181419999999434], {icon: hp}).addTo(carte);
+
+      var marker1 = L.marker([48.862725, 2.287592000000018]).addTo(carte);
+      var marker2 = L.marker([43.184277, 3.0030779999999595]).addTo(carte);
+      marker2.bindPopup(''); // Je ne mets pas de texte par défaut
+      var mapopup = marker2.getPopup();
+      mapopup.setContent('narboooooooonne'); // je personnalise un peu avant d'afficher
+      marker2.openPopup();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+   </body>
+   </html

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        var Narbonne={lat: 43.1433327, lng: 2.9711151};
+        var Mtp={lat:43.6025216 , lng:3.9090729 },
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 43.1433327, lng: 2.9711151},
+          zoom: 8
+          });
+          var marker = new google.maps.Marker({
+          position: Narbonne,
+          map: map
+        });
+          var markerbis = new google.maps.Marker({
+          position: Mtp,
+          map: map
+      });
+      var infoNarbonne=
+                '<a href="https://en.wikipedia.org/wiki/Narbonne">NARBONNE</a>'
+
+            var infobulleNarbonne = new google.maps.InfoWindow({
+              content: infoNarbonne
+            });
+            marker.addListener('click', function() {
+          infobulleNarbonne.open(map, marker);
+            });
+            var infoMtp=
+                      '<a href="https://en.wikipedia.org/wiki/Montpellier">MONTPELLIER</a>'
+
+                  var infobulleMtp = new google.maps.InfoWindow({
+                    content: infoMtp
+                  });
+                  markerbis.addListener('click', function() {
+                infobulleMtp.open(map, markerbis);
+                  });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHirJ_OVK_wDBQzNN6f594kCImuTTVu7w&callback=initMap"
+    async defer></script>
+  </body>
+</html
